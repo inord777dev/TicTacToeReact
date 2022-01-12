@@ -19,17 +19,19 @@ class Square extends React.Component {
 
 class Row extends React.Component {
   render() {
-    const squares = Array(this.props.width).fill(null).map((val, i) => {
-      let index = this.props.index * this.props.width + i;
-      return (
-        <Square
-          key = {index}
-          index = {index}
-          value={this.props.squares[index]}
-          onClick={(i) => this.props.onClick(i)}
-        />
-      )
-    });
+    const squares = Array(this.props.width)
+      .fill(null)
+      .map((val, i) => {
+        let index = this.props.index * this.props.width + i;
+        return (
+          <Square
+            key={index}
+            index={index}
+            value={this.props.squares[index]}
+            onClick={(i) => this.props.onClick(i)}
+          />
+        );
+      });
 
     return (
       <div className='board-row' key={this.props.index}>
